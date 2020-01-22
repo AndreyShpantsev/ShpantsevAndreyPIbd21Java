@@ -1,14 +1,16 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class UsualWheels implements IWheels {
+public class VerticalOrnament implements IWheels {
 
-	static int _startPosX;
-	static int _startPosY;
+	private int _startPosX;
+	private int _startPosY;
 	private Color ColorWheels;
+	private Color ColorOrnament;
 
-	public UsualWheels(Color colorwheel) {
+	public VerticalOrnament(Color colorwheel, Color colorornament) {
 		ColorWheels = colorwheel;
+		ColorOrnament = colorornament;
 	}
 
 	public void SetPosition(int x, int y) {
@@ -24,6 +26,11 @@ public class UsualWheels implements IWheels {
 		g.setColor(Color.BLACK);
         g.drawRect(_startPosX + 382, _startPosY + 35, 15, 20);
         g.drawRect(_startPosX + 382, _startPosY + 75, 15, 20);
+        g.setColor(ColorOrnament);
+        g.fillRect(_startPosX + 385, _startPosY + 35, 3, 20);
+        g.fillRect(_startPosX + 391, _startPosY + 35, 3, 20);
+        g.fillRect(_startPosX + 385, _startPosY + 75, 3, 20);
+        g.fillRect(_startPosX + 391, _startPosY + 75, 3, 20);
         
 		for (int i = 1; i < countWheels; i++) {
 			g.setColor(ColorWheels);
@@ -32,6 +39,11 @@ public class UsualWheels implements IWheels {
 			g.setColor(Color.BLACK);
             g.drawRect(_startPosX + 240 + x, _startPosY + 35, 20, 20);
             g.drawRect(_startPosX + 240 + x, _startPosY + 75, 20, 20);
+            g.setColor(ColorOrnament);
+            g.fillRect(_startPosX + 244 + x, _startPosY + 35, 4, 20);
+            g.fillRect(_startPosX + 252 + x, _startPosY + 35, 4, 20);
+            g.fillRect(_startPosX + 244 + x, _startPosY + 75, 4, 20);
+            g.fillRect(_startPosX + 252 + x, _startPosY + 75, 4, 20);
             x+=22;
 		}
 	}

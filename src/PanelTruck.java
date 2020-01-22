@@ -1,19 +1,27 @@
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
-public class PanelTruck extends JPanel {
-	private Tipper tip;
-	private UsualWheels wheels;
+import java.awt.Graphics;
+import javax.swing.JPanel;
 
-	public PanelTruck(Tipper tip, UsualWheels wheels) {
-		this.tip = tip;
+public class PanelTruck extends JPanel {
+	private ITransport transport;
+	private IWheels wheels;
+
+	public PanelTruck(ITransport transport, IWheels wheels) {
 		this.wheels = wheels;
+		this.transport = transport;
+	}
+
+	void setTruck(ITransport transport) {
+		this.transport = transport;
 	}
 
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		wheels.Draw(g);
-		tip.DrawTipper(g);		
+		if (transport != null) {
+			transport.DrawTruck(g);
+		}
 	}
 }
